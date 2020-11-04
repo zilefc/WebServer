@@ -1,3 +1,4 @@
+//fczile@gmail.com
 #include <ESP8266WiFi.h>
 
 const char* ssid     = "CONTACTA DTICS";
@@ -24,7 +25,7 @@ void setup() {
   pinMode(output4, OUTPUT);
 
   digitalWrite(output5, LOW);
-  //digitalWrite(output4, LOW);
+  digitalWrite(output4, LOW);
 
 
   Serial.print("Connecting to ");
@@ -73,7 +74,7 @@ void loop(){
               Serial.println("GPIO 5 off");
               output5State = "off";
               digitalWrite(output5, LOW);
-            } /*else if (header.indexOf("GET /4/on") >= 0) {
+            } else if (header.indexOf("GET /4/on") >= 0) {
               Serial.println("GPIO 4 on");
               output4State = "on";
               digitalWrite(output4, HIGH);
@@ -81,7 +82,7 @@ void loop(){
               Serial.println("GPIO 4 off");
               output4State = "off";
               digitalWrite(output4, LOW);
-            }*/
+            }
             client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
             client.println("<link rel=\"icon\" href=\"data:,\">");
@@ -105,13 +106,13 @@ void loop(){
               client.println("<p><a href=\"/5/off\"><button class=\"button button2\">OFF</button></a></p>");
             } 
                
-           /* client.println("<p>GPIO 4 - State " + output4State + "</p>");
+            client.println("<p>GPIO 4 - State " + output4State + "</p>");
              
             if (output4State=="off") {
               client.println("<p><a href=\"/4/on\"><button class=\"button\">ON</button></a></p>");
             } else {
               client.println("<p><a href=\"/4/off\"><button class=\"button button2\">OFF</button></a></p>");
-            }*/
+            }
             client.println("</body></html>");
             
             // The HTTP response ends with another blank line
